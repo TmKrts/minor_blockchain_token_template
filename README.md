@@ -19,6 +19,8 @@ Om deze code zelf te runnen moet je het volgende gedownload hebben:
     - Zoek "juanblanco.solidity" op in de visual studio market place in visual studio code.
 - Python: https://www.python.org/downloads/
   - Dit heb je nodig om WEB3 scripts te runnen
+- Pipx: Dit is de aanbevolen installen om brownie te installeren: https://github.com/pypa/pipx
+- Brownie: Dit is het token framework wat gebruikt is voor dit template. Dit framework automatiseert het compilen waardoor dat niet meer handmatig gecodeerd hoeft te worden: https://eth-brownie.readthedocs.io/en/stable/install.html
 
 // TODO expand on this
 
@@ -33,6 +35,8 @@ export ROPSTEN_PRIVATE_KEY=<YOUR ROPSTEN PRIVATE KEY>
 
 Met jouw persoonlijk prive sleuter tussen de <>.
 
+Verander in het "token.sol" de tekst tussen "" naar een naam (lijn 7) en afkorting (lijn 8).
+
 Open een terminal en run:
 
 ```solidity
@@ -40,3 +44,17 @@ brownie compile
 ```
 
 Dit zorgt dat alle nodige dependencies gedownload kunnen worden en dat de code kan compilen.
+
+Wanneer het compilen successvol is gelukt zou het token contract deployable moeten zijn. Om te voorkomen dat het misschien fout gaat is het script ook eerst lokaal te runnen. In dat geval zal brownie de ganache-cli op spinnen. Het is dan niet mogelijk om met het contract te werken, want dat zou dan vooraf geprogrameerd moeten worden, maar dan is in ieder geval duidleijk dat het contract lokaal te deployen is.
+
+Dit is te doen met het volgende commando:
+
+```solidity
+brownie run scripts/1_deploy_token.py
+```
+
+Als alles daar werkt en u bent tevreden met uw token kunt u het deployen naar het ropsten testnet door middel van het commando:
+
+```solidity
+brownie run scripts/1_deploy_token.py --network ropsten
+```

@@ -4,8 +4,10 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Token is ERC20 {
-    // Wei
-    constructor(uint256 initialSupply) public ERC20("1012test", "10t") {
+    string tokenName = "test";
+    string tokenAbbrevation = "10t";
+
+    constructor(uint256 initialSupply) ERC20(tokenName, tokenAbbrevation) {
         _mint(msg.sender, initialSupply);
     }
 }
