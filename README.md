@@ -24,8 +24,8 @@ Om deze code zelf te runnen moet je het volgende gedownload hebben:
 
 ## Hoe je eigen token te deployen? (Ropsten testnet)
 
-Maak in de hoofdfolder een bestand aan met de naam: ".env". Zet hier vervolgens je private key in van ROPSTEN testnetwerk in je metamask. (https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key).
-Dat kan er dan als volgt uitzien:
+Maak in de hoofdfolder een bestand aan met de naam: ".env". Zet hier vervolgens je private key in van ROPSTEN testnetwerk in je metamask (https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key).
+Dat ziet er dan als volgt uit:
 
 ```solidity
 export ROPSTEN_PRIVATE_KEY=<YOUR ROPSTEN PRIVATE KEY>
