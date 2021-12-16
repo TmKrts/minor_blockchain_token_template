@@ -33,7 +33,7 @@ Dat ziet er dan als volgt uit:
 export ROPSTEN_PRIVATE_KEY=<YOUR ROPSTEN PRIVATE KEY>
 ```
 
-Met jouw persoonlijk prive sleuter tussen de <>.
+Met jouw persoonlijk prive sleutel tussen de <>.
 
 Verander in het "token.sol" de tekst tussen "" naar een naam (lijn 7) en afkorting (lijn 8).
 
