@@ -38,3 +38,5 @@ Open een terminal en run:
 ```solidity
 brownie compile
 ```
+
+Dit zorgt dat alle nodige dependencies gedownload kunnen worden en dat de code kan compilen.
