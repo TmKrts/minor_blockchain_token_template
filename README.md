@@ -17,19 +17,73 @@ Om deze code zelf te runnen moet je het volgende gedownload hebben:
 - Een code editor (bijvoorbeeld: Visual studio code: https://code.visualstudio.com/download).
   - Optioneel: Solidity extension in Visual Studio Code.
     - Zoek "juanblanco.solidity" op in de visual studio market place in visual studio code.
+- Git om deze repository the clonen: https://git-scm.com/downloads.
 - Python: https://www.python.org/downloads/
   - Dit heb je nodig om WEB3 scripts te runnen
-- Pipx: Dit is de aanbevolen installen om brownie te installeren: https://github.com/pypa/pipx
-- Brownie: Dit is het token framework wat gebruikt is voor dit template. Dit framework automatiseert het compilen waardoor dat niet meer handmatig gecodeerd hoeft te worden: https://eth-brownie.readthedocs.io/en/stable/install.html
 
-// TODO expand on this
+## Hoe deze repository te clonen en eigen token te deployen? (Ropsten testnet) (Voor windows gebruikers)
 
-## Hoe je eigen token te deployen? (Ropsten testnet)
+### Clonen
+
+Clone deze repository in een folder naar keuze. Dit kan je doen door gebruik te maken van git. Maak een folder aan waarin je de code wilt hebben en open in die folder een terminal. Kun je doen door in de file explorer shift + rechtermuisknop en de folder te openen in PowerShell.
+
+Run in die shell het volgende commando:
+
+```
+git clone https://github.com/TmKrts/minor_blockchain_token_template.git
+```
+
+Open vervolgens de code editor op die folder.
+
+In de explorer. Druk op rechtermuisknop en klik op: open integrated terminal wat een geïtegreerde terminal zou moeten openen.
+
+Om te controleren of python goed is geïnstaleerd run het volgende commando in die terminal:
+
+```
+py
+```
+
+Als python goed is geïnstalleerd zou de terminal moeten veranderen. Run het volgende commando om hier weer uit te gaan:
+
+```
+exit()
+```
+
+### Brownie installeren
+
+Als het goed is heb je python niet geïnstaleerd via de microsoft store dus zullen de commands in de volgende link niet werken: https://eth-brownie.readthedocs.io/en/stable/install.html. In plaats van python moet het py zijn. Dus gebruik de volgende commands om pipx te installeren:
+
+```
+py -m pip install --user pipx
+```
+
+```
+py -m pipx ensurepath
+```
+
+Als python via de microsoft store is geïnstalleerd zet ensurepath het foute path waardoor pipx niet gevonden kan worden.
+
+Wanneer de hierboven staande command gerunt zijn, herstart de computer zodat de Path variablen goed werken. Wanneer je vervolgens de code editor weer opent met een integrated terminal zou het volgende commando moeten werken:
+
+```
+pipx
+```
+
+Installeer vervolgens brownie met het volgende commando:
+
+```
+pipx install eth-brownie
+```
+
+Mocht dit niet werken installeer dan ook python in de microsoft store en run het commando opnieuw.
+Mochten de visual studio build tools ontbreken. Installeer die dan ook door op het linkje in de terminal te klikken.
+
+// TODO find out why brownie install isn't working
 
 Maak in de hoofdfolder een bestand aan met de naam: ".env". Zet hier vervolgens je private key in van ROPSTEN testnetwerk in je metamask (https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key).
 Dat ziet er dan als volgt uit:
 
-```solidity
+```
 export ROPSTEN_PRIVATE_KEY=<YOUR ROPSTEN PRIVATE KEY>
 ```
 
@@ -39,7 +93,7 @@ Verander in het "token.sol" de tekst tussen "" naar een naam (lijn 7) en afkorti
 
 Open een terminal en run:
 
-```solidity
+```
 brownie compile
 ```
 
