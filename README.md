@@ -19,9 +19,18 @@ Om deze code zelf te runnen moet je het volgende gedownload hebben:
     - Zoek "juanblanco.solidity" op in de visual studio market place in visual studio code.
 - Git om deze repository the clonen: https://git-scm.com/downloads.
 - NodeJs: https://nodejs.org/en/download/
-  - Dit is nodig om met NPM (een package manager) ganache te installeren. (Omdat hier iets meer handelingen voor nodig zijn zie: [Installeren ganache-cli](#ganache-cli-installeren))
-- Python: https://www.python.org/downloads/
-  - Dit is nodig om WEB3 scripts te runnen
+  - Dit is nodig om met NPM (een package manager) ganache te installeren.
+- Ganache-cli: [Installeren ganache-cli](#ganache-cli-installeren)
+  - Om een lokale blockchain te runnen.
+  - Brownie (het framework voor het deployen van smart contracts) is hiervan afhankelijk.
+- Python (release 3.9.7): https://www.python.org/downloads/release/python-397/
+  - Omdat dit een paar specifieke versie stappen vereist kun je ook deze tutorial volgen om zeker te weten dat het goed gaat: [Installeren python](#installeren-python).
+  - Dit is nodig om WEB3 scripts te runnen.
+  - Met python moet je ook de volgende packages installeren om brownie te laten werken:
+    - pipx: [Installeren pipx](#pipx)
+    - Cython [Installeren Cython](#Cython-&-cytoolz)
+    - cytoolz [Installeren cytoolz](#Cython-&-cytoolz)
+- C++ build tools: [Installeren C++ build tools](#C++-Build-tools)
 
 ## Hoe deze repository te clonen en eigen token te deployen? (Ropsten testnet) (Voor windows gebruikers)
 
@@ -37,20 +46,6 @@ git clone https://github.com/TmKrts/minor_blockchain_token_template.git
 
 Open vervolgens de code editor op die folder.
 
-In de explorer. Druk op rechtermuisknop en klik op: open integrated terminal wat een geïtegreerde terminal zou moeten openen.
-
-Om te controleren of python goed is geïnstaleerd run het volgende commando in die terminal:
-
-```
-py
-```
-
-Als python goed is geïnstalleerd zou de terminal moeten veranderen. Run het volgende commando om hier weer uit te gaan:
-
-```
-exit()
-```
-
 ### Ganache-cli installeren
 
 Als het goed is heb je NodeJs geïnstalleerd en daarmee ook automatisch NPM het bijbehoorden package manager. Dit kan je controleren door in een terminal de volgende commando's te runnen:
@@ -63,7 +58,7 @@ node --version
 npm --version
 ```
 
-Wanneer beide een versie terug geven en geen error betekent dat het goed geïnstalleerd is. 
+Wanneer beide een versie terug geven en geen error betekent dat het goed geïnstalleerd is.
 
 Om ganache globaal te installeren (wat betekend dat je het vanaf overal kan runnen) run het volgende commando:
 
@@ -71,7 +66,7 @@ Om ganache globaal te installeren (wat betekend dat je het vanaf overal kan runn
 npm install -g ganache-cli
 ```
 
-Windows maakt dan automatisch een .ps1 file aan waardoor het commando wat je wilt runnen niet werkt. Dit bestand moet verwijderd worden. 
+Windows maakt dan automatisch een .ps1 file aan waardoor het commando wat je wilt runnen niet werkt. Dit bestand moet verwijderd worden.
 
 ![ganache-cli ps1 bestand](https://github.com/TmKrts/minor_blockchain_token_template/blob/main/assets/ps1File.png)
 
@@ -85,47 +80,98 @@ ganache-cli
 
 Als er vervolgens een lokale ganache server wordt gedraaid betekend het dat het goed geïnstalleerd is.
 
+### C++ Build tools
+
+Brownie is afhankelijk van een paar van deze packages. Welke dat zijn wordt uitgelegd in dit hoofdstuk.
+
+Download de build tools van de volgende site: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
+Run dat programma vervolgens en installeer de Desktop development with C++ workload. Zie afbeelding hierinder:
+
+![c++ workload](https://github.com/TmKrts/minor_blockchain_token_template/blob/main/assets/build-tools.png)
+
+Mocht dit tijdens de installatie fout gegaan zijn is het nog altijd aanpasbaar door het gedownloade bestand opnieuw te runnen.
+
+### Python
+
+#### Installeren Python
+
+Scroll in de volgende link naar beneden en kies uit de tabel de juiste windows installer: https://www.python.org/downloads/release/python-397/. Zorg er bij de installatie voor dat je pip ook installeert en zorgt dat python toegevoegd word als envornment variable. Zie volgende foto's:
+
+![python pip bestand](https://github.com/TmKrts/minor_blockchain_token_template/blob/main/assets/python-pip.png)
+![python environment bestand](https://github.com/TmKrts/minor_blockchain_token_template/blob/main/assets/python-environment.png)
+
+Om te controleren of python goed is geïnstaleerd run het volgende commando in die terminal:
+
+```
+python
+```
+
+Als python goed is geïnstalleerd zou de terminal moeten veranderen. Run het volgende commando om hier weer uit te gaan:
+
+```
+exit()
+```
+
+#### Pip
+
+Pip zou als het goed is geïnstalleerd moeten zijn met python.
+
+Om te controlleren of pip ook goed in geïnstalleerd run:
+
+```
+pip --version
+```
+
+Mocht dit niet het geval zijn run dan de installer opnieuw en pas de installatie aan. Zie volgende afbeelding:
+
+![python pip bestand](https://github.com/TmKrts/minor_blockchain_token_template/blob/main/assets/python-setup-modify.png)
+
+#### pipx
+
+Het wordt aangeraden om brownie te installeren met pipx. Hiervoor moet pipx nog geïnstalleerd worden. Dit kun je doen daar in een terminal de volgende commando's te runnen:
+
+```
+python -m pip install --user pipx
+```
+
+```
+python -m pipx ensurepath
+```
+
+Om er zeker van te zijn dat pipx goed werkt als systeem variabelen wordt aangeraden het systeem opnieuw op te starten.
+
+Om te controlleren of pipx goed is geïnstalleerd run het volgende commando in een terminal:
+
+```
+pipx --version
+```
+
+#### Cython & cytoolz
+
+Om brownie te kunnen installeren heb je Cython en cytoolz nodig. Dit kun je doen door het runnen van de volgende commando's:
+
+```
+pip install Cython
+```
+
+```
+pip install cytoolz
+```
+
 ### Brownie installeren
 
-// NOTE Dit werkt nog niet.
-
-Als het goed is heb je python niet geïnstaleerd via de microsoft store dus zullen de commands in de volgende link niet werken: https://eth-brownie.readthedocs.io/en/stable/install.html. In plaats van python moet het py zijn. Dus gebruik de volgende commands om pipx te installeren:
+Het is aan te raden om brownie te installeren op pip als pipx. Dit is te doen als aan alle eisen is voldaan met de volgende commando's:
 
 ```
-py -m pip install --user pipx
+pip install eth-brownie
 ```
-
-```
-py -m pipx ensurepath
-```
-
-Als python via de microsoft store is geïnstalleerd zet ensurepath het foute path waardoor pipx niet gevonden kan worden.
-
-Wanneer de hierboven staande command gerunt zijn, herstart de computer zodat de Path variablen goed werken. Wanneer je vervolgens de code editor weer opent met een integrated terminal zou het volgende commando moeten werken:
-
-```
-pipx
-```
-
-Installeer vervolgens brownie met het volgende commando:
 
 ```
 pipx install eth-brownie
 ```
 
-Mocht dit niet werken installeer dan ook python in de microsoft store en run het commando opnieuw.
-Mochten de visual studio build tools ontbreken. Installeer die dan ook door op het linkje in de terminal te klikken.
-
-// TODO find out why brownie install isn't working
-
-Maak in de hoofdfolder een bestand aan met de naam: ".env". Zet hier vervolgens je private key in van ROPSTEN testnetwerk in je metamask (https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key).
-Dat ziet er dan als volgt uit:
-
-```
-export ROPSTEN_PRIVATE_KEY=<YOUR ROPSTEN PRIVATE KEY>
-```
-
-Met jouw persoonlijk prive sleutel tussen de <>.
+### Deployen op lokaal testnetwerk
 
 Verander in het "token.sol" de tekst tussen "" naar een naam (lijn 7) en afkorting (lijn 8).
 
@@ -137,15 +183,42 @@ brownie compile
 
 Dit zorgt dat alle nodige dependencies gedownload kunnen worden en dat de code kan compilen.
 
-Wanneer het compilen successvol is gelukt zou het token contract deployable moeten zijn. Om te voorkomen dat het misschien fout gaat is het script ook eerst lokaal te runnen. In dat geval zal brownie de ganache-cli op spinnen. Het is dan niet mogelijk om met het contract te werken, want dat zou dan vooraf geprogrameerd moeten worden, maar dan is in ieder geval duidleijk dat het contract lokaal te deployen is.
+Om vervolgens te een token te deployen op een lokale ganache server run:
 
-Dit is te doen met het volgende commando:
-
-```solidity
-brownie run scripts/1_deploy_token.py
+```
+brownie run ./scripts/1_deploy_token
 ```
 
-Als alles daar werkt en u bent tevreden met uw token kunt u het deployen naar het ropsten testnet door middel van het commando:
+### Deployen op ropsten testnet
+
+Maak een account aan op https://infura.io/. Gevolgd door met een ethereum project. Dit moet je namelijk hebben om te kunnen connecten met het ethereum netwerk.
+
+Maak in de hoofdfolder van de code editor een bestand aan met de naam: ".env". Zet hier vervolgens je private key in van ROPSTEN testnetwerk in je metamask (https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key).
+Dat ziet er dan als volgt uit:
+
+```
+export ROPSTEN_PRIVATE_KEY=<YOUR ROPSTEN PRIVATE KEY>
+```
+
+Met uw persoonlijk prive sleutel tussen de <>. Gevolgd met een lijn die linkt naar het infura project. In de settings van dat project kun je het "PROJECT ID" kopiëren. Zet de volgende lijn in de .env file:
+
+```
+export WEB3_INFURA_PROJECT_ID=<YOUR INFURA PROJECT ID>
+```
+
+Met uw infura project id tussen de <>.
+
+Verander in het "token.sol" bestand de tekst tussen "" naar een naam (lijn 7) en afkorting (lijn 8).
+
+Open een terminal en run:
+
+```
+brownie compile
+```
+
+Dit zorgt dat alle nodige dependencies gedownload kunnen worden en dat de code kan compilen.
+
+Vevolgens is het token deployable op het ropsten testnet met het volgende commando:
 
 ```solidity
 brownie run scripts/1_deploy_token.py --network ropsten
