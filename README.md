@@ -73,7 +73,7 @@ npm install -g ganache-cli
 
 Windows maakt dan automatisch een .ps1 file aan waardoor het commando wat je wilt runnen niet werkt. Dit bestand moet verwijderd worden. 
 
-![ganache-cli ps1 bestand](assets\ps1File.png)
+![ganache-cli ps1 bestand](https://github.com/TmKrts/minor_blockchain_token_template/blob/main/assets/ps1File.png)
 
 Zoek dit bestand op op uw computer en verwijder het.
 
