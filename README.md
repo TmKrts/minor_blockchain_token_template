@@ -18,8 +18,10 @@ Om deze code zelf te runnen moet je het volgende gedownload hebben:
   - Optioneel: Solidity extension in Visual Studio Code.
     - Zoek "juanblanco.solidity" op in de visual studio market place in visual studio code.
 - Git om deze repository the clonen: https://git-scm.com/downloads.
+- NodeJs: https://nodejs.org/en/download/
+  - Dit is nodig om met NPM (een package manager) ganache te installeren. (Omdat hier iets meer handelingen voor nodig zijn zie: [Installeren ganache-cli](#ganache-cli-installeren))
 - Python: https://www.python.org/downloads/
-  - Dit heb je nodig om WEB3 scripts te runnen
+  - Dit is nodig om WEB3 scripts te runnen
 
 ## Hoe deze repository te clonen en eigen token te deployen? (Ropsten testnet) (Voor windows gebruikers)
 
@@ -48,6 +50,40 @@ Als python goed is geïnstalleerd zou de terminal moeten veranderen. Run het vol
 ```
 exit()
 ```
+
+### Ganache-cli installeren
+
+Als het goed is heb je NodeJs geïnstalleerd en daarmee ook automatisch NPM het bijbehoorden package manager. Dit kan je controleren door in een terminal de volgende commando's te runnen:
+
+```
+node --version
+```
+
+```
+npm --version
+```
+
+Wanneer beide een versie terug geven en geen error betekent dat het goed geïnstalleerd is. 
+
+Om ganache globaal te installeren (wat betekend dat je het vanaf overal kan runnen) run het volgende commando:
+
+```
+npm install -g ganache-cli
+```
+
+Windows maakt dan automatisch een .ps1 file aan waardoor het commando wat je wilt runnen niet werkt. Dit bestand moet verwijderd worden. 
+
+![ganache-cli ps1 bestand]("./assets/2021-12-20 09_41_39-ganache-cli - npm.png")
+
+Zoek dit bestand op op uw computer en verwijder het.
+
+Om te controleren of ganache goed is geïnstalleerd run het volgende commando in een terminal:
+
+```
+ganache-cli
+```
+
+Als er vervolgens een lokale ganache server wordt gedraaid betekend het dat het goed geïnstalleerd is.
 
 ### Brownie installeren
 
