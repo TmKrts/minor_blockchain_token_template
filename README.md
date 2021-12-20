@@ -23,6 +23,7 @@ Om deze code zelf te runnen moet je het volgende gedownload hebben:
 - Ganache-cli: [Installeren ganache-cli](#ganache-cli-installeren)
   - Om een lokale blockchain te runnen.
   - Brownie (het framework voor het deployen van smart contracts) is hiervan afhankelijk.
+- C++ build tools: [Installeren C++ build tools](#C++-Build-tools)
 - Python (release 3.9.7): https://www.python.org/downloads/release/python-397/
   - Omdat dit een paar specifieke versie stappen vereist kun je ook deze tutorial volgen om zeker te weten dat het goed gaat: [Installeren python](#installeren-python).
   - Dit is nodig om WEB3 scripts te runnen.
@@ -30,7 +31,6 @@ Om deze code zelf te runnen moet je het volgende gedownload hebben:
     - pipx: [Installeren pipx](#pipx)
     - Cython [Installeren Cython](#Cython-&-cytoolz)
     - cytoolz [Installeren cytoolz](#Cython-&-cytoolz)
-- C++ build tools: [Installeren C++ build tools](#C++-Build-tools)
 
 ## Hoe deze repository te clonen en eigen token te deployen? (Ropsten testnet) (Voor windows gebruikers)
 
@@ -220,6 +220,6 @@ Dit zorgt dat alle nodige dependencies gedownload kunnen worden en dat de code k
 
 Vevolgens is het token deployable op het ropsten testnet met het volgende commando:
 
-```solidity
+```
 brownie run scripts/1_deploy_token.py --network ropsten
 ```
