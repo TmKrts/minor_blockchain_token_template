@@ -87,6 +87,8 @@ Als er vervolgens een lokale ganache server wordt gedraaid betekend het dat het 
 
 ### Brownie installeren
 
+// NOTE Dit werkt nog niet.
+
 Als het goed is heb je python niet geïnstaleerd via de microsoft store dus zullen de commands in de volgende link niet werken: https://eth-brownie.readthedocs.io/en/stable/install.html. In plaats van python moet het py zijn. Dus gebruik de volgende commands om pipx te installeren:
 
 ```
