@@ -159,6 +159,12 @@ pip install Cython
 pip install cytoolz
 ```
 
+Om te controleren of deze tools goed geïnstalleerd zijn is het mogelijk om te kijken of ze in de lijst staan wanneer het volgende commando wordt gerunt:
+
+```
+pip list
+```
+
 ### Brownie installeren
 
 Het is aan te raden om brownie te installeren op pip als pipx. Dit is te doen als aan alle eisen is voldaan met de volgende commando's:
